@@ -1,0 +1,40 @@
+Scenario: VoIP  traffic with low load
+ 
+              Evaluation_score_with_cost_focus
+              ________________________________
+    RSS        0.2878                         
+    SAW       0.45974                         
+    GRA       0.45974                         
+    TOPSIS    0.45974                         
+    VIKOR     0.46094                         
+------------------------------------------------------------------------
+Scenario: IPTV  traffic with low load
+ 
+              Evaluation_score_with_cost_focus
+              ________________________________
+    RSS       0.34173                         
+    SAW       0.47877                         
+    GRA       0.47877                         
+    TOPSIS    0.49152                         
+    VIKOR     0.41566                         
+------------------------------------------------------------------------
+Scenario: VoIP  traffic with high load
+ 
+              Evaluation_score_with_cost_focus
+              ________________________________
+    RSS       0.36145                         
+    SAW       0.42349                         
+    GRA       0.42349                         
+    TOPSIS    0.42349                         
+    VIKOR     0.42438                         
+------------------------------------------------------------------------
+Scenario: IPTV  traffic with high load
+ 
+              Evaluation_score_with_cost_focus
+              ________________________________
+    RSS       0.35352                         
+    SAW       0.48149                         
+    GRA        0.4836                         
+    TOPSIS     0.4487                         
+    VIKOR     0.43428                         
+------------------------------------------------------------------------
