@@ -1,3 +1,4 @@
+.gitignore
 *.zip
 .git
 gitResSeed.sh
