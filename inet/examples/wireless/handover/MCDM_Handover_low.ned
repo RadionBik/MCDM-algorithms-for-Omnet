@@ -11,8 +11,11 @@
 // See the GNU Lesser General Public License for more details.
 //
 
+
 package inet.examples.wireless.handover;
 
+import inet.environment.common.PhysicalEnvironment;
+import inet.environment.contract.IPhysicalEnvironment;
 import inet.examples.adhoc.hostautoconf.Host;
 import inet.examples.inet.ipv4hook.MyRouter;
 import inet.examples.wireless.dynamic.DynamicHost;
@@ -28,14 +31,16 @@ import inet.node.inet.Router;
 import inet.node.inet.StandardHost;
 import inet.node.inet.WirelessHost;
 import inet.physicallayer.common.packetlevel.RadioMedium;
+import inet.routing.ospfv2.OSPFRouting;
 import ned.DatarateChannel;
-//import inet.examples.power
+
 
 network MCDM_Handover_low
 {
     @display("bgb=700,700");
     //string errorModelType = default(""); 
 
+    double appBitrateRescalingFactor = 1;
     types:
         channel fiberline extends DatarateChannel
         {
@@ -67,38 +72,54 @@ network MCDM_Handover_low
             @display("p=353,390");
         }
         AP1: AccessPoint {
-            @display("p=222,112");
+            @display("p=212,112");
         }
         AP2: AccessPoint {
-            @display("p=222,362");
+            @display("p=212,362");
         }
         AP3: AccessPoint {
-            @display("p=222,612");
+            @display("p=212,612");
         }
         AP4: AccessPoint {
-            @display("p=472,112");
+            @display("p=487,112");
         }
         AP5: AccessPoint {
-            @display("p=472,362");
+            @display("p=487,362");
         }
         AP6: AccessPoint {
-            @display("p=472,612");
+            @display("p=487,612");
         }
         wirelessClient: WirelessHost {
-            @display("p=138,161");
+            @display("p=115,189");
         }
-        wirelessClient1: WirelessHost {
-            @display("p=293,566");
+        wirelessClientX1: WirelessHost {
+            @display("p=362,369");
         }
-        wirelessClient2: WirelessHost {
-            @display("p=197,280");
+        wirelessClientX2: WirelessHost {
+            @display("p=548,156");
         }
-        wirelessClient3: WirelessHost {
-            @display("p=442,253");
+        wirelessClientX3: WirelessHost {
+            @display("p=112,521");
         }
-        wirelessClient4: WirelessHost {
-            @display("p=472,479");
+        wirelessClientX4: WirelessHost {
+            @display("p=526,471");
         }
+//        wirelessClientX5: WirelessHost {
+//            @display("p=344,113");
+//        }
+//        wirelessClientX6: WirelessHost {
+//            @display("p=232,284");
+//        }
+//        wirelessClientX7: WirelessHost {
+//            @display("p=371,233");
+//        }
+//        wirelessClientX8: WirelessHost {
+//            @display("p=127,380");
+//        }
+//        wirelessClientX9: WirelessHost {
+//            @display("p=232,479");
+//        }
+
     connections:
         switch.ethg++ <--> Eth100G <--> routerServerFarm.ethg++;
         server.ethg++ <--> Eth100G <--> routerServerFarm.ethg++;

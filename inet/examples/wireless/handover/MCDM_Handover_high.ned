@@ -14,6 +14,8 @@
 
 package inet.examples.wireless.handover;
 
+import inet.environment.common.PhysicalEnvironment;
+import inet.environment.contract.IPhysicalEnvironment;
 import inet.examples.adhoc.hostautoconf.Host;
 import inet.examples.inet.ipv4hook.MyRouter;
 import inet.examples.wireless.dynamic.DynamicHost;
@@ -29,14 +31,16 @@ import inet.node.inet.Router;
 import inet.node.inet.StandardHost;
 import inet.node.inet.WirelessHost;
 import inet.physicallayer.common.packetlevel.RadioMedium;
+import inet.routing.ospfv2.OSPFRouting;
 import ned.DatarateChannel;
-//import inet.examples.power
+
 
 network MCDM_Handover_high
 {
     @display("bgb=700,700");
     //string errorModelType = default(""); 
 
+    double appBitrateRescalingFactor = 1;
     types:
         channel fiberline extends DatarateChannel
         {
@@ -68,52 +72,52 @@ network MCDM_Handover_high
             @display("p=353,390");
         }
         AP1: AccessPoint {
-            @display("p=222,112");
+            @display("p=212,112");
         }
         AP2: AccessPoint {
-            @display("p=222,362");
+            @display("p=212,362");
         }
         AP3: AccessPoint {
-            @display("p=222,612");
+            @display("p=212,612");
         }
         AP4: AccessPoint {
-            @display("p=472,112");
+            @display("p=487,112");
         }
         AP5: AccessPoint {
-            @display("p=472,362");
+            @display("p=487,362");
         }
         AP6: AccessPoint {
-            @display("p=472,612");
+            @display("p=487,612");
         }
         wirelessClient: WirelessHost {
-            @display("p=151,152");
-        }
-        wirelessClient1: WirelessHost {
-            @display("p=239,252");
-        }
-        wirelessClient2: WirelessHost {
-            @display("p=338,283");
-        }
-        wirelessClient3: WirelessHost {
-            @display("p=452,250");
-        }
-        wirelessClient4: WirelessHost {
-            @display("p=261,407");
-        }
-        wirelessClientX: WirelessHost {
-            @display("p=452,489");
+            @display("p=115,189");
         }
         wirelessClientX1: WirelessHost {
-            @display("p=222,540");
+            @display("p=344,323");
         }
         wirelessClientX2: WirelessHost {
-            @display("p=344,440");
+            @display("p=548,156");
         }
         wirelessClientX3: WirelessHost {
-            @display("p=353,192");
+            @display("p=112,521");
         }
         wirelessClientX4: WirelessHost {
-            @display("p=464,311");
+            @display("p=526,471");
+        }
+        wirelessClientX5: WirelessHost {
+            @display("p=344,113");
+        }
+        wirelessClientX6: WirelessHost {
+            @display("p=232,284");
+        }
+        wirelessClientX7: WirelessHost {
+            @display("p=371,233");
+        }
+        wirelessClientX8: WirelessHost {
+            @display("p=127,380");
+        }
+        wirelessClientX9: WirelessHost {
+            @display("p=232,479");
         }
     connections:
         switch.ethg++ <--> Eth100G <--> routerServerFarm.ethg++;
@@ -127,5 +131,4 @@ network MCDM_Handover_high
         AP5.ethg++ <--> ethline <--> switch.ethg++;
         AP6.ethg++ <--> ethline <--> switch.ethg++;
 }
-
 
